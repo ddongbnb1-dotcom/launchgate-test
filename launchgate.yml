@@ -1,0 +1,19 @@
+version: "1"
+
+  app:
+    type: nextjs
+    name: launchgate-test
+
+  preview:
+    healthCheckPath: /api/health
+    requiredEnvVars:
+      - DATABASE_URL
+
+  database:
+    type: neon
+    branchFrom: main
+
+  deploy:
+    platform: vercel
+    approvers:
+      - oscarr
